@@ -1,6 +1,6 @@
-package tz.ac.udsm.dsa;
+package tz.ac.udsm.dsa.arrays;
 
-class RaggedArray {
+public class RaggedArray {
     public boolean isRagged(int arr[][]){
         /**
          * A ragged array is an array in which all rows do not have the same length

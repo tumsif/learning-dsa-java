@@ -1,6 +1,6 @@
-package tz.ac.udsm.dsa;
+package tz.ac.udsm.dsa.arrays;
 
-class Arrays {
+public class Arrays {
     /**
      * Arrays is a data structure that represents a collection of data with same data type
      * Array declaration
