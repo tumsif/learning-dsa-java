@@ -17,112 +17,144 @@ import tz.ac.udsm.dsa.iterations.Exponential;
 
 class Main {
     public static void main(String[] args){
-        // Ackermann ackerman = new Ackermann();
-        // ackerman.run();
+        System.out.println("Running a program Main");
 
-        // Factorial factorial = new Factorial();
-        // factorial.run();
+        System.out.println("Ackermann function running");
+        Ackermann ackerman = new Ackermann();
+        ackerman.run();
+        System.out.println("Factorial function ended \n");
 
-        // Arrays arr = new Arrays();
-        // System.out.println(arr.matrix2[1][2]);
+        System.out.println("Factorial function running");
+        Factorial factorial = new Factorial();
+        factorial.run();
+        System.out.println("Factorial function ended \n");
 
-        // int raggedArr[][] = {
-        //     {1, 2, 3, 4},
-        //     {5, 6, 7},
-        //     {8, 9},
-        //     {10}
-        // };
+        System.out.println("Arrays implementation running");
 
-        // int nonRaggedArr[][] = {
-        //     {1, 2, 3, 4},
-        //     {5, 6, 7, 8},
-        //     {9, 10, 11, 12},
-        //     {10, 11, 12, 13}
-        // };
+        Arrays arr = new Arrays();
+        System.out.println(arr.matrix2[1][2]);
 
-        // RaggedArray rgdArr = new RaggedArray();
-        // // System.out.println(rgdArr.isRagged(raggedArr));
-        // // System.out.println(rgdArr.isRagged(nonRaggedArr));
+        int raggedArr[][] = {
+            {1, 2, 3, 4},
+            {5, 6, 7},
+            {8, 9},
+            {10}
+        };
 
+        int nonRaggedArr[][] = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {10, 11, 12, 13}
+        };
 
-        // Arrays arr = new Arrays();
+        RaggedArray rgdArr = new RaggedArray();
+        System.out.println(rgdArr.isRagged(raggedArr));
+        System.out.println(rgdArr.isRagged(nonRaggedArr));
 
-        // int arr1[][] = {
-        //     {10, 20, 30},
-        //     {50, 40}
-        // };
-        // int arr2[][] = {
-        //     {10, 20, 30},
-        //     {50, 40}
-        // };
-        // int arr3[][] = {
-        //     {10, 30, 20},
-        //     {50, 40, 60}
-        // };
-        // int arr4[][] = {
-        //     {10, 20, 30},
-        //     {40, 50, 60}
-        // };
-        // int arr5[][] = {
-        //     {10, 20, 30},
-        //     {40, 50},
-        //     {60}
-        // };
-        // int arr6[][] = {
-        //     {10, 20, 30},
-        //     {40, 50, 60}
-        // };
-        // System.out.println(arr.equals(raggedArr, nonRaggedArr));
-        // System.out.println(arr.equals(arr1, arr2));
-        // System.out.println(arr.equals(arr3, arr4));
-        // System.out.println(arr.equals(arr5, arr6));
+        int arr1[][] = {
+            {10, 20, 30},
+            {50, 40}
+        };
+        int arr2[][] = {
+            {10, 20, 30},
+            {50, 40}
+        };
+        int arr3[][] = {
+            {10, 30, 20},
+            {50, 40, 60}
+        };
+        int arr4[][] = {
+            {10, 20, 30},
+            {40, 50, 60}
+        };
+        int arr5[][] = {
+            {10, 20, 30},
+            {40, 50},
+            {60}
+        };
+        int arr6[][] = {
+            {10, 20, 30},
+            {40, 50, 60}
+        };
+        System.out.println(arr.equals(raggedArr, nonRaggedArr));
+        System.out.println(arr.equals(arr1, arr2));
+        System.out.println(arr.equals(arr3, arr4));
+        System.out.println(arr.equals(arr5, arr6));
 
-        // int[] linearizedArr = arr.linearize(arr1);
-        // for(int i=0; i<linearizedArr.length; i++){
-        //     System.out.println(arr.linearize(arr1)[i]);
-        // }
+        int[] linearizedArr = arr.linearize(arr1);
 
+        System.out.println("Linearizing array");
+        for(int i=0; i<linearizedArr.length; i++){
+            System.out.print(arr.linearize(arr1)[i] + ", ");
+        }
+        System.out.println("\n");
+
+        System.out.println("Node implementation");
         // Node numerals = new Node<String>("one", new Node<String>("two", new Node<String>("three", null)));
         Node<Integer> numerals = new Node<Integer>(1, new Node<Integer>(2, new Node<Integer>(3, null)));
 
+        System.out.println("Printing all elements created at the beginning of node creation");
+        numerals.printAllElements();
+        System.out.println();
+
         // numerals is added a new element just before the first element and then reassigned to the numeral value
+        System.out.println("Inserting 0 at the first node");
         numerals = numerals.insertAtFirst(0);
-        // numerals.printAllElements(numerals);
+        numerals.printAllElements();
+        System.out.println();
 
         // changes the value a certain value at the node or print not found
+        System.out.println("Inserting 5 after 2");
         numerals.insertAfterValue(2, 5);
-        // numerals.printAllElements(numerals);
+        numerals.printAllElements();
+        System.out.println();
 
+        // deletes a value from the node
+        System.out.println("Deleting 0 and 5");
         numerals.deleteValue(0);
         numerals.deleteValue(5);
-        // numerals.printAllElements();
-
+        numerals.printAllElements();
+        System.out.println();
 
         // palindrome
+        System.out.println("Palindrome implementation");
+        System.out.println("A word is palindrome if it can be spelled backwards and still be the same \n");
+
+        System.out.println("Consider word one and ono");
         String word = "one";
         String word2 = "ono";
 
         Palindrome plndr = new Palindrome();
-        System.out.println(plndr.isPalindrome(word, 0, (word.length() - 1)));
-        System.out.println(plndr.isPalindrome(word2, 0, (word.length() - 1)));
+        System.out.println("one is palindrome? " + plndr.isPalindrome(word, 0, (word.length() - 1)));
+        System.out.println("ono is palindrome? " + plndr.isPalindrome(word2, 0, (word.length() - 1)));
 
         // fibonacci numbers
+        System.out.println("\nFibonacci implementation");
         Fibonacci fib = new Fibonacci();
-        // System.out.println(fib.fibonacci(8)); // 0, 1, 1, 2, 3, 5, 8, 13, 21
+        System.out.println("Fibonnacci of index 8 is " + fib.fibonacci(8)); // 0, 1, 1, 2, 3, 5, 8, 13, 21
 
         // numbers of zeros in a digit
         NumberOfZero noOfZero = new NumberOfZero();
-        // System.out.println(noOfZero.zeros(10204));
+        System.out.println("10204 has " + noOfZero.zeros(10204) + " zeroes.");
 
         // implementation of towers of hanoi
+        System.out.println("\nTowers of Hanoi implementation");
         HanoiTowers towers = new HanoiTowers();
-        // towers.hanoi(3, 'A', 'C', 'B');
-        // towers.hanoi(4, 'A', 'C', 'B');
+        System.out.println("Hanoi towers with 3 disks");
+        towers.hanoi(3, 'A', 'C', 'B');
+        System.out.println("\n");
+        System.out.println("Hanoi towers with 4 disks");
+        towers.hanoi(4, 'A', 'C', 'B');
+        System.out.println("Hanoi towers ended \n");
+
+        // binary search
+        System.out.println("Binary search implementation");
         BinarySearch bsrc = new BinarySearch();
 
-        int arr2[] = {1, 2, 7, 8, 3, 4, 5, 6, 7, 10}; // 3720.0ns recursive, 5001.0 iterative
+        int largeSizeArr[] = {1, 2, 7, 8, 3, 4, 5, 6, 7, 10}; // 3720.0ns recursive, 5001.0 iterative
 
-        int arr[] = {1, 2, 3, 4, 5}; // 2833.0ns recursive, 3095.0ns. iterative
+        int smallSizeArr[] = {1, 2, 3, 4, 5}; // 2833.0ns recursive, 3095.0ns. iterative
 
         /**
          * It is found out that recursive binary search takes less time than iterative approach
@@ -134,24 +166,28 @@ class Main {
          * Iterative binary search, 5003.0 ns
          */
 
+        System.out.println("Running a binary search on an array " + smallSizeArr);
+        System.out.println("Computing the implementation of binary search on the array\n");
         double startTime, endTime;
 
         startTime = System.nanoTime();
-        bsrc.binSearchRec(arr, 0, arr.length, 3);
+        bsrc.binSearchRec(smallSizeArr, 0, smallSizeArr.length, 3);
         endTime = System.nanoTime();
         System.out.println("Recursive binary search took " + (endTime - startTime) + "ns.");
 
         
         startTime = System.nanoTime();
-        bsrc.binSearchIter(arr, 3);
+        bsrc.binSearchIter(smallSizeArr, 3);
         endTime = System.nanoTime();
         System.out.println("Iterative binary search took " + (endTime - startTime) + "ns.");
 
         startTime = System.nanoTime();
+
+        System.out.println("\n Using Taylor series to calculate e^(n)");
         Exponential exp = new Exponential();
         endTime = System.nanoTime();
         System.out.println("The value of e^(3) in taylor series for n = 4 is " + exp.exponent(3, 4));
-        System.out.println("It  took a time of " + (endTime - startTime) + "ns");
+        System.out.println("It  took an excecution time of " + (endTime - startTime) + "ns\n");
 
 
         /**
@@ -167,15 +203,9 @@ class Main {
          */
         int[] arrayDemo = {1, 2, 4, 10, 20, 30};
 
-        Arrays arrayObjectDemo = new Arrays();
-        int aSize = arrayObjectDemo.deleteItem(arrayDemo, 2);
+        int aSize = arr.deleteItem(arrayDemo, 2);
 
-        System.out.println(aSize);
+        System.out.println("Given the array " + arrayDemo.toString() + " and the index 2, the array after deletion is " + arrayDemo.toString() + " and the size of the array is " + aSize);
 
-        for(int i = 0; i < aSize; i++){
-            System.out.print(arrayDemo[i] + ", ");
-        }
-
-        System.out.println();
     }
 }
