@@ -1,0 +1,12 @@
+#!/bin/bash
+jar_file_name="jar.jar"
+
+read -p "Enter jar filename (default: $jar_file_name): " jar_file_name_input
+
+if [ -z "$jar_file_name_input" ]; then
+    jar_file_name=$jar_file_name
+else
+    jar_file_name=$jar_file_name_input
+fi
+
+java -jar $jar_file_name

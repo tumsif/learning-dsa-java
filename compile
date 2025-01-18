@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Automation of compile process to jar Using Shell script
+# Initial variables
+java_path_name="tz/ac/udsm/dsa"
+entry_point="Main"
+jar_file_name="jar.jar"
+java_package_name=""
+
+echo "Compilation of source file to jar file ..."
+
+read -p "Enter the path of the java source file (default: tz/ac/udsm/dsa): " java_path_name_input
+read -p "What is the entrypoint to source file (default: $entry_point): " entry_point_input
+read -p "What is the name of jar file (default: $jar_file_name): " jar_file_name_input
+
+if [ -z "$entry_point_input" ]; then
+    entry_point=$entry_point
+else
+    entry_point=$entry_point_input
+fi
+
+if [ -z "$java_path_name_input" ]; then
+    java_path_name=$java_path_name
+else
+    java_path_name=$java_path_name_input
+fi
+
+if [ -z "$jar_file_name_input" ]; then
+    jar_file_name=$jar_file_name
+else
+    jar_file_name=$jar_file_name_input
+fi
+
+java_package_name=$(echo "$java_path_name" | sed 's/\//./g')
+
+echo "Compilation of source file to jar file ..."
+
+# Step 1: Compile the Java source files into the class directory
+javac $java_path_name/*.java -d class || exit 1
+
+# Step 2: Package the class files into a JAR file
+jar cfv $jar_file_name -C class .
+
+# Step 3: Add the entry point to the manifest file
+echo -e "Main-Class: $java_package_name.$entry_point" > manifest.txt
+
+# Step 4: Update the JAR file with the manifest
+jar ufm $jar_file_name manifest.txt
+
+# Cleanup the manifest file
+rm manifest.txt
+
+echo "Jar successfully created. Run: java -jar $jar_file_name."
