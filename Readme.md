@@ -17,3 +17,5 @@ But make sure you allow the excecutable permissions to this two using command
 
 `sudo chmod u+x compile run`
 
+## Commented Code
+Some code appears to be commented because of reused variables
