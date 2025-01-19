@@ -2,9 +2,12 @@ package tz.ac.udsm.dsa;
 
 import tz.ac.udsm.dsa.Ackermann;
 import tz.ac.udsm.dsa.Factorial;
+import tz.ac.udsm.dsa.Node;
+
 import tz.ac.udsm.dsa.arrays.Arrays;
 import tz.ac.udsm.dsa.arrays.RaggedArray;
-import tz.ac.udsm.dsa.Node;
+
+import tz.ac.udsm.dsa.lists.ListArray;
 
 import tz.ac.udsm.dsa.recursion.Palindrome;
 import tz.ac.udsm.dsa.recursion.Fibonacci;
@@ -207,5 +210,35 @@ class Main {
 
         System.out.println("Given the array " + arrayDemo.toString() + " and the index 2, the array after deletion is " + arrayDemo.toString() + " and the size of the array is " + aSize);
 
+
+        /**
+         * ListsArray implementation. For interger only
+         */
+        System.out.println("\nImplementing List ADT using arrays");
+        System.out.println("Consider array {1, 2, 3, 4, 5}");
+        int[] arrList = {1, 2, 3, 4, 5};
+        ListArray listArr = new ListArray(arrList);
+        System.out.println("Is array empty " + listArr.isEmpty());
+
+        ListArray emptyListArr = new ListArray(10);
+        System.out.println("\nConsider an array with size 10 but empty");
+        System.out.println("Is array empty? " + emptyListArr.isEmpty());
+
+        int[] emptyArr = {};
+        ListArray empty = new ListArray(emptyArr);
+        System.out.println("\nConsider an array with size 0");
+        System.out.println("Is array empty? " + emptyListArr.isEmpty());
+
+        System.out.println("\nIs array {1, 2, 3, 4, 5} full " + listArr.isFull());
+        System.out.println("Is an array with size 10 full? " + emptyListArr.isFull());
+
+        ListArray longArr = new ListArray(arrList, 10);
+        System.out.println(longArr.get(6));
+
+        int[] intermediateArr = longArr.insert(8);
+        for(int i = 0; i < intermediateArr.length; i++){
+            System.out.print(intermediateArr[i] + ", ");
+        }
+        System.out.println("\n");
     }
 }
