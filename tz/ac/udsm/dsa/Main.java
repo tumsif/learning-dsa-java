@@ -1,8 +1,11 @@
 package tz.ac.udsm.dsa;
 
+import java.util.Scanner;
+
 import tz.ac.udsm.dsa.Ackermann;
 import tz.ac.udsm.dsa.Factorial;
 import tz.ac.udsm.dsa.Node;
+import tz.ac.udsm.dsa.PalindromeTwo;
 
 import tz.ac.udsm.dsa.arrays.Arrays;
 import tz.ac.udsm.dsa.arrays.RaggedArray;
@@ -267,5 +270,15 @@ class Main {
         System.out.println(stackLinked.pop()); // 10
         stackLinked.popAll(); // removes everithing
         System.out.println(stackLinked.pop()); // -1
+
+
+        System.out.println("\nFinding Palindrome of string");
+        System.out.print("Enter your string: ");
+        Scanner scan = new Scanner(System.in);
+        String text = scan.nextLine();
+        scan.close();
+        PalindromeTwo palindromeTester = new PalindromeTwo();
+        boolean isPalindrome = palindromeTester.isPalindrome(text);
+        System.out.println("Is " + text + " a palindrome " + isPalindrome);
     }
 }
