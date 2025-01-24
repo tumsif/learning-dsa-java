@@ -35,7 +35,7 @@ class Node<T> {
      */
 
     // Insert at first location
-    public Node insertAtFirst(Object value){
+    public Node<T> insertAtFirst(T value){
         Node newNode = new Node(value, this);
         return newNode;
     }

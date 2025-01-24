@@ -17,6 +17,8 @@ import tz.ac.udsm.dsa.recursion.BinarySearch;
 
 import tz.ac.udsm.dsa.iterations.Exponential;
 
+import tz.ac.udsm.dsa.stacks.StacksArray;
+
 
 class Main {
     public static void main(String[] args){
@@ -240,5 +242,15 @@ class Main {
             System.out.print(intermediateArr[i] + ", ");
         }
         System.out.println("\n");
+
+        System.out.println("Stacks implementation");
+        StacksArray stack = new StacksArray(5);
+        stack.push(10);
+        stack.push(5);
+        stack.push(4);
+        System.out.println(stack.pop()); // 4
+        System.out.println(stack.pop()); // 5
+        stack.popAll(); // removes everithing
+        System.out.println(stack.pop()); // -1
     }
 }
