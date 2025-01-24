@@ -3,13 +3,46 @@ package tz.ac.udsm.dsa.lists;
   * A linked list is data structure, in which a node consist of data and the address of the next the node successor.
   * This in turn can have a variable length of collection compared to arrays
   */
-class LinkedList<T> {
-    LinkedList next;
-    T value;
+public class LinkedList<T> {
+    private LinkedList next;
+    private T value;
 
-    LinkedList(T value, LinkedList next){
+    public LinkedList(T value, LinkedList next){
         this.value = value;
         this.next = next;
+    }
+
+    public LinkedList(T value){
+        this.value = value;
+        this.next = null;
+    }
+
+    public void setValue(T value){
+        /**
+         * A setter method for LinkedList
+         */
+        this.value = value;
+    }
+
+    public T getValue(){
+        /**
+         * Getter value for LinkedList
+         */
+        return this.value;
+    }
+
+    public void setNext(LinkedList nextReference){
+        /**
+         * Setter method for next reference
+         */
+        this.next = nextReference;
+    }
+
+    public LinkedList getNext(){
+        /**
+         * 
+         */
+        return this.next;
     }
 
     public void printAllElements(){

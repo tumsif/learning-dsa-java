@@ -18,6 +18,7 @@ import tz.ac.udsm.dsa.recursion.BinarySearch;
 import tz.ac.udsm.dsa.iterations.Exponential;
 
 import tz.ac.udsm.dsa.stacks.StacksArray;
+import tz.ac.udsm.dsa.stacks.StacksLinkedList;
 
 
 class Main {
@@ -243,7 +244,7 @@ class Main {
         }
         System.out.println("\n");
 
-        System.out.println("Stacks implementation");
+        System.out.println("Stacks implementation for Array");
         StacksArray stack = new StacksArray(5);
         stack.push(10);
         stack.push(5);
@@ -252,5 +253,19 @@ class Main {
         System.out.println(stack.pop()); // 5
         stack.popAll(); // removes everithing
         System.out.println(stack.pop()); // -1
+
+        System.out.println("\nStacks implementation for Linked list");
+        StacksLinkedList<Integer> stackLinked = new StacksLinkedList();
+        stackLinked.push(10);
+        stackLinked.push(5);
+        stackLinked.push(4);
+        for(int i = 0; i < 10000; i++){
+            stackLinked.push(i);
+        }
+        System.out.println(stackLinked.pop()); // 4
+        System.out.println(stackLinked.pop()); // 5
+        System.out.println(stackLinked.pop()); // 10
+        stackLinked.popAll(); // removes everithing
+        System.out.println(stackLinked.pop()); // -1
     }
 }
